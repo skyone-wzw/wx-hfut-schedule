@@ -1,0 +1,85 @@
+<!--miniprogram/pages/bindStudentCount/bindStudentCount.wxml-->
+<view class="weui-form">
+	<view class="weui-form__text-area">
+		<h2 class="weui-form__title">绑定学号</h2>
+		<view class="weui-form__desc">我们的数据来源是学校教务系统，因此需要您提供您的教务系统账号及密码。</view>
+	</view>
+	<view class="weui-form__control-area">
+		<view class="weui-cells__group weui-cells__group_form">
+			<view class="weui-cells__title">绑定学号</view>
+			<view class="weui-cells weui-cells_form">
+				<view class="weui-cell weui-cell_active">
+					<view class="weui-cell__hd"><label class="weui-label">学号</label></view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" type="number" placeholder="填写本人学号" maxlength="10"
+							placeholder-class="weui-input__placeholder" bindinput="bindInputUserCode" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_active">
+					<view class="weui-cell__hd">
+						<label class="weui-label">WebVPN密码</label>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" placeholder="学校WEBVPN密码" password="true"
+							placeholder-class="weui-input__placeholder" bindinput="bindInputVpnPsd" />
+					</view>
+				</view>
+				<view class="weui-cell weui-cell_active">
+					<view class="weui-cell__hd">
+						<label class="weui-label">教务系统密码</label>
+					</view>
+					<view class="weui-cell__bd">
+						<input class="weui-input" placeholder="学校教务系统密码" password="true"
+							placeholder-class="weui-input__placeholder" bindinput="bindInputPsd" />
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="weui-form__tips-area">
+		<view class="weui-form__tips">
+			我们保护您的隐私，承诺绝不以任何目的泄露！
+		</view>
+	</view>
+	<view class="weui-form__opr-area">
+		<button bindtap="onSubmit" class="weui-btn weui-btn_primary">确定</button>
+	</view>
+	<view class="weui-form__tips-area">
+		<view class="weui-form__tips">
+			注意：一旦绑定学号，我们将根据学号从教务系统获取数据，以提供服务。
+		</view>
+	</view>
+	<view class="weui-form__extra-area">
+		<view class="weui-footer">
+			<!--
+                <view class="weui-footer__links">
+					<a href="javascript:" class="weui-footer__link">底部链接文本</a>
+				</view>
+                -->
+			<view class="weui-footer__text">Copyright © 2020 skyone-wzw</view>
+		</view>
+	</view>
+</view>
+<view class="fadeIn {{hideWarnToast ? 'fadeOut' : ''}}" wx:if="{{usernameLengthErrorToast}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<i class="weui-icon-warn weui-icon_toast"></i>
+		<view class="weui-toast__content">学号格式错误</view>
+	</view>
+</view>
+<view class="fadeIn {{hideWarnToast ? 'fadeOut' : ''}}" wx:if="{{msgToast}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<i class="weui-icon-warn weui-icon_toast"></i>
+		<view class="weui-toast__content">{{ msg }}</view>
+	</view>
+</view>
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<view class="weui-primary-loading weui-primary-loading_transparent weui-icon_toast">
+			<view class="weui-primary-loading__dot"></view>
+		</view>
+		<view class="weui-toast__content">加载中</view>
+	</view>
+</view>

@@ -1,0 +1,4 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view style="opacity: {{ opacity }}; transition: all 1s;">
+    <text>miniprogram/pages/index/index.wxml</text>
+</view>

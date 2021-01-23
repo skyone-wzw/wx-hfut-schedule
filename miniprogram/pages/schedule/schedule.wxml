@@ -1,0 +1,89 @@
+<!--miniprogram/pages/index/schedule/schedule.wxml-->
+<view id="hd" style="height: {{ windowHeight * 0.04 }}px; width: {{ windowWidth }}px;">
+    <button bindtap="leftWeek"
+        style="padding-bottom: 12px; font-size: 1em; float: left; height: {{ windowHeight * 0.04 }}px; width: 35%; ">
+        上一周
+    </button>
+    第{{ cursor }}周
+    <button bindtap="rightWeek"
+        style="padding-bottom: 12px; font-size: 1em; float: right; height: {{ windowHeight * 0.04 }}px; width: 35%; ">
+        下一周
+    </button>
+</view>
+<view wx:if="{{ false }}" id="hd" style="height: {{ windowHeight * 0.04 }}px; width: {{ windowWidth }}px;" ></view>
+<view id="hf" style="height: {{ windowHeight * 0.96 }}px; width: {{ windowWidth }}px;">
+    <view id="dl" style="height: {{ windowHeight * 0.96 }}px; width: {{ windowWidth * 0.06 }}px">
+        <view>时间轴</view>
+    </view>
+    <view id="dr" style="height: {{ windowHeight * 0.96 }}px; width: {{ windowWidth * 0.94 }}px">
+        <view wx:for="{{ schedule[cursor] }}" wx:for-index="dayIndex" wx:for-item="daySchedule">
+            <view class="lefter">
+                <view wx:for="{{ daySchedule }}" wx:for-index="timeIndex" wx:for-item="timeSchedulr"
+                    data-dayIndex="{{ dayIndex }}" data-timeIndex="{{ timeIndex }}" bindtap="showDetail">
+                    <view>
+                        <view wx:if="{{ timeSchedulr.course }}">
+                            <view wx:if="{{ (eToI[timeSchedulr.time.end] != timeIndex) }}"
+                                style="width: {{ width }}px; height: {{ height * 2 + 6 }}px; background-color: #dddee1;"
+                                class="intro">
+                                {{ timeSchedulr.course.name }}
+                                <!--
+                                    <view style="visibility: hidden;font-size: 13px">1234</view>
+                                -->
+                                <view style="color: #19be6b">{{ timeSchedulr.room.name }}</view>
+                            </view>
+                            <view wx:if="{{ (eToI[timeSchedulr.time.end] == sToI[timeSchedulr.time.start]) }}"
+                                style="width: {{ width }}px; height: {{ height * 2 + 6 }}px; background-color: #dddee1; font-size: 13px"
+                                class="intro">
+                                {{ timeSchedulr.course.name }}
+                                <view style="color: #19be6b; font-size: 13px">{{ timeSchedulr.room.name }}</view>
+                            </view>
+                        </view>
+                        <view wx:if="{{ !(timeSchedulr.course) }}" style="width: {{ width }}px; height: {{ height }}px;"
+                            class="intro">
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view id="showDetail" style="width: {{ windowWidth }}px; height: {{ windowHeight }}px; " wx:if="{{ showDetail }}">
+    <view id="detail-top" style="width: {{ windowWidth }}px; height: {{ windowHeight * 0.44 }}px; "
+        bindtap="closeDetail"></view>
+</view>
+<view id="detailBox"
+    style="width: {{ windowWidth }}px; height: {{ windowHeight * 2 / 3 }}px; opacity: {{ opacity }}; top: {{ detailtop }}px">
+    <image src="{{ detail.imgurl }}" id="detail-img"
+        style="width: {{ windowWidth / 3 }}px; height: {{ windowWidth / 3 }}px; bottom: {{ windowHeight * 2 / 3 }}px; margin: 0 {{ windowWidth / 3 }}px; ">
+    </image>
+    <view id="textBox" style="width: {{ windowWidth }}px; height: {{ windowHeight * 2 / 3 }}px; ">
+        <view id="className" style="width: {{ windowWidth }}px;">{{ detail.course.name }}</view>
+        <view class="detail-list" style="width: {{ windowWidth }}px; height: {{ windowHeight / 25 }}px; ">
+            <view class="detail-left" style="width: {{ windowWidth * 0.3 }}px; ">地点：</view>
+            <view class="detail-right" style="width: {{ windowWidth * 0.7 - 1 }}px;">{{ detail.room.name }}</view>
+        </view>
+        <view class="detail-list" style="width: {{ windowWidth }}px; height: {{ windowHeight / 25 }}px; ">
+            <view class="detail-left" style="width: {{ windowWidth * 0.3 }}px;">老师：</view>
+            <view wx:for="{{ detail.teacher }}" wx:for-item="teacher" class="detail-right"
+                style="float: left; width: {{ windowWidth * 0.2 }}px;">
+                {{ teacher }}
+            </view>
+        </view>
+        <view class="detail-list" style="width: {{ windowWidth }}px; height: {{ windowHeight / 25 }}px; ">
+            <view class="detail-left" style="width: {{ windowWidth * 0.3 }}px;">时间：</view>
+            <view class="detail-right" style="width: {{ windowWidth * 0.7 - 1 }}px;">{{ detail.timetext }}</view>
+        </view>
+        <view class="detail-list" style="width: {{ windowWidth }}px; height: {{ windowHeight / 25 }}px; ">
+            <view class="detail-left" style="width: {{ windowWidth * 0.3 }}px;">学生人数：</view>
+            <view class="detail-right" style="width: {{ windowWidth * 0.7 - 1 }}px;">{{ detail.studentCount }}</view>
+        </view>
+        <view class="detail-list" style="width: {{ windowWidth }}px; height: {{ windowHeight / 25 }}px; ">
+            <view class="detail-left" style="width: {{ windowWidth * 0.3 }}px;">课程类型：</view>
+            <view class="detail-right" style="width: {{ windowWidth * 0.7 - 1 }}px;">{{ detail.course.type }}</view>
+        </view>
+        <view class="detail-list" style="width: {{ windowWidth }}px; height: {{ windowHeight / 25 }}px; ">
+            <view class="detail-left" style="width: {{ windowWidth * 0.3 }}px;">课程代码：</view>
+            <view class="detail-right" style="width: {{ windowWidth * 0.7 - 1 }}px;">{{ detail.course.code }}</view>
+        </view>
+    </view>
+</view>

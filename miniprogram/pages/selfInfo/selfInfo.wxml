@@ -1,0 +1,49 @@
+<!--miniprogram/pages/selfInfo/selfInfo.wxml-->
+<view class="page__hd">
+    <view class="page__title">个人信息</view>
+    <view class="page__desc"></view>
+</view>
+<view class="page__bd page__bd_spacing">
+    <view wx:if="{{ isstudent }}">
+        <view class="weui-flex">
+            <view>
+                <view class="placeholder">学号</view>
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder">{{ selfinfo.userCode }}</view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view>
+                <view class="placeholder">姓名</view>
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder">{{ selfinfo.name }}</view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view>
+                <view class="placeholder">性别</view>
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder">{{ selfinfo.sex }}</view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view>
+                <view class="placeholder">班级</view>
+            </view>
+            <view class="weui-flex__item">
+                <view class="placeholder">{{ selfinfo.class }}</view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-flex">
+        <view>
+            <view class="placeholder">微信</view>
+        </view>
+        <view class="weui-flex__item">
+            <view class="placeholder">{{ nickname }}</view>
+        </view>
+    </view>
+</view>

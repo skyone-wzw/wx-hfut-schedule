@@ -1,0 +1,51 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/home/home",
+        "pages/schedule/schedule",
+        "pages/remind/remind",
+        "pages/selfInfo/selfInfo",
+        "pages/bindStudentCount/bindStudentCount"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "Skyone小站",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#a9b7b7",
+        "selectedColor": "#11cd6e",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabber/home.png",
+                "selectedIconPath": "images/tabber/home_select.png"
+            },
+            {
+                "pagePath": "pages/schedule/schedule",
+                "text": "课表",
+                "iconPath": "images/tabber/activity.png",
+                "selectedIconPath": "images/tabber/activity_select.png"
+            },
+            {
+                "pagePath": "pages/remind/remind",
+                "text": "通知",
+                "iconPath": "images/tabber/remind.png",
+                "selectedIconPath": "images/tabber/remind_select.png"
+            },
+            {
+                "pagePath": "pages/home/home",
+                "text": "我的",
+                "iconPath": "images/tabber/mine.png",
+                "selectedIconPath": "images/tabber/mine_select.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json",
+    "style": "v2"
+}
