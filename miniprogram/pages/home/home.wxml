@@ -31,7 +31,7 @@
 
 
   <view class="uploader">
-    <navigator url="" open-type="navigate" class="uploader-text">
+    <navigator bindtap="test" class="uploader-text">
       <text>功能2</text>
     </navigator>
   </view>

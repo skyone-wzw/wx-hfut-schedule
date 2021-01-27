@@ -43,9 +43,6 @@ Page({
         wx.stopPullDownRefresh()
       }
     });
-    this;
-    app;
-    let a = 1;
   },
 
   onGetUserInfo: function (e) {
@@ -80,4 +77,8 @@ Page({
   cleanData: function () {
     wx.clearStorageSync()
   },
+
+  test: function() {
+    wx.showModal()
+  }
 })

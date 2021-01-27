@@ -1,1 +1,56 @@
 /* miniprogram/pages/index/index.wxss */
+.hr {
+    height: 2px;
+    background-color: #e9eaec;
+    width: 90%;
+    border-radius: 25%;
+    margin: 1px auto;
+}
+
+#greet {
+    width: 90%;
+    padding: 20px 3%;
+    margin: 0 2%;
+    margin-bottom: 10px;
+    background-color: #2d8cf0;
+    border-radius: 15px 15px 15px 15px;
+    text-align: center;
+    color: white;
+}
+
+#block {
+    width: 90%;
+    padding: 20px 3%;
+    margin: 10px 2%;
+    background-color: #19be6b;
+    border-radius: 15px 15px 15px 15px;
+    text-align: center;
+    color: white;
+    transition: all 0.2s;
+    position: absolute;
+}
+
+#user {
+    width: 90%;
+    padding: 20px 3%;
+    margin: 0 2%;
+    margin-bottom: 10px;
+    background-color: #ff9900;
+    border-radius: 15px 15px 15px 15px;
+    text-align: center;
+    color: white;
+    transition: all 0.2s;
+    position: absolute;
+}
+
+#unlogin {
+    width: 90%;
+    padding: 20px 3%;
+    margin: 0 2%;
+    margin-bottom: 10px;
+    background-color: #ed3f14;
+    border-radius: 15px 15px 15px 15px;
+    color: white;
+    transition: all 0.2s;
+    position: absolute;
+}

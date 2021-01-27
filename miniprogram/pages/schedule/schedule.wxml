@@ -13,7 +13,10 @@
 <view wx:if="{{ false }}" id="hd" style="height: {{ windowHeight * 0.04 }}px; width: {{ windowWidth }}px;" ></view>
 <view id="hf" style="height: {{ windowHeight * 0.96 }}px; width: {{ windowWidth }}px;">
     <view id="dl" style="height: {{ windowHeight * 0.96 }}px; width: {{ windowWidth * 0.06 }}px">
-        <view>时间轴</view>
+        <view class="timetable" wx:for="{{ timetable }}"  style="height: {{ windowHeight * 0.087 }}px; width: {{ windowWidth * 0.06 }}px">
+            <view  style="position: relative; top: 15%; ">{{ item.name }}</view>
+            <br />
+        </view>
     </view>
     <view id="dr" style="height: {{ windowHeight * 0.96 }}px; width: {{ windowWidth * 0.94 }}px">
         <view wx:for="{{ schedule[cursor] }}" wx:for-index="dayIndex" wx:for-item="daySchedule">

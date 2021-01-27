@@ -134,7 +134,7 @@ Page({
         const insert = (str1, str2, point) => { return str1.slice(0, point) + str2 + str1.slice(point) };
         if ("course" in this.data.schedule[this.data.cursor][event.currentTarget.dataset.dayindex][event.currentTarget.dataset.timeindex]) {
             let data = this.data.schedule[this.data.cursor][event.currentTarget.dataset.dayindex][event.currentTarget.dataset.timeindex];
-            data.imgurl = this.data.imgurl[Math.floor(Math.random() * 4)];
+            data.imgurl = this.data.imgurl[Math.floor(Math.random() * this.data.imgurl.length)];
             if (data.time.start.toString().length > 2 && data.time.end.toString().length > 2) {
                 data.timetext = insert(data.time.start.toString(), ":", -2) + "--" + insert(data.time.end.toString(), ":", -2);
             } else {

@@ -40,6 +40,11 @@ page {
   background-color: #ff6600;
 }
 
+.timetable {
+  text-align: center;
+  font-size: 0.65rem;
+}
+
 #dr {
   float: right;
   background-color: #f8f8f9;

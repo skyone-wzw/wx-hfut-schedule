@@ -1,4 +1,33 @@
 <!--miniprogram/pages/index/index.wxml-->
-<view style="opacity: {{ opacity }}; transition: all 1s;">
-    <text>miniprogram/pages/index/index.wxml</text>
+<view style="opacity: {{ opacity }}; transition: all 0.5s;">
+    <view id="greet">{{ greet }}</view>
+    <view wx:if="{{ isuser && isstudent }}">
+        <view id="block" style="left: {{ left }}px; ">
+            <view style="margin-bottom: 5px; font-size: 1.2em; ">班 级 通 知</view>
+            <view class="hr"></view>
+            <view>此功能正在努力开发中~~</view>
+        </view>
+    </view>
+    <view wx:if="{{ isuser && !isstudent }}">
+        <view id="user" style="left: {{ left }}px; ">
+            <view>你还没有绑定学号</view>
+            <view>快去 "我的"->"绑定学号" 完成绑定吧！</view>
+            <view>只有完成绑定才能查看课表哦~</view>
+        </view>
+    </view>
+    <view wx:if="{{ !isuser }}">
+        <view id="unlogin" style="left: {{ left }}px; ">
+            <view style="text-align: center; margin-bottom: 5px; font-size: 1.2em; ">欢迎使用Skyone系列软件</view>
+            <view class="hr"></view>
+            <view>本小程序用于查询课程表。</view>
+            <view>请先前往 "我的" 完成授权并绑定学号。</view>
+            <view style="text-align: center; margin: 15px 0 5px 0; font-size: 1.2em; ">创作原因</view>
+            <view class="hr"></view>
+            <view>由于课程表只能用校园网查询，受到学长的启发，我便萌生了自己写出校外也可以查看课程表的小程序的想法。</view>
+            <view>奈何以前从未接触过小程序编程，甚至JavaScript和CSS都没怎么接触，很多东西都只能从头学起。。</view>
+            <view>从后端的Node.js写爬虫，到API设计，再到小程序设计……</view>
+            <view>但索性花了两个月时间，我终于把基本功能完成了！</view>
+            <view style="text-align: center; margin: 15px 0 5px 0; font-size: 1.2em; ">粗劣拙作，敬请海涵</view>
+        </view>
+    </view>
 </view>
